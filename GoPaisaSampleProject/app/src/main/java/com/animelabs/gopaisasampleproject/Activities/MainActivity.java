@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button1 = (Button)findViewById(R.id.button);
+        changeFragment();
+        /*button1 = (Button)findViewById(R.id.button);
         button2 = (Button)findViewById(R.id.button2);
         container = (FrameLayout)findViewById(R.id.content_frame);
         imageView = (ImageView)findViewById(R.id.imageView3);
@@ -117,11 +118,11 @@ public class MainActivity extends AppCompatActivity {
         entryArrayList = new ArrayList<>();
         pDialog = new ProgressDialog(this);
         pDialog.setMessage("Loading...");
-        pDialog.setCancelable(false);
+        pDialog.setCancelable(false);*/
 
     }
 
-    private void fetchAndUpdateData(String url){
+   /* private void fetchAndUpdateData(String url){
         button2.setVisibility(View.GONE);
         button1.setVisibility(View.GONE);
         imageView.setVisibility(View.GONE);
@@ -235,9 +236,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         //Log.d(TAG, response.toString());
-                        /*ResponseModel entry;
+                        *//*ResponseModel entry;
                         Gson gson = new Gson();
-                        entry = gson.fromJson(response.toString(), ResponseModel.class);*/
+                        entry = gson.fromJson(response.toString(), ResponseModel.class);*//*
                         //Log.d(TAG, entry.getImage().getLabel() + "");
 
                         try {
@@ -327,15 +328,6 @@ public class MainActivity extends AppCompatActivity {
         changeFragment();
     }
 
-    public void changeFragment(){
-        AppListFragment appListFragment = new AppListFragment();
-        appListFragment.setContext(MainActivity.this);
-        appListFragment.setEntryArrayList(entryArrayList);
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, appListFragment);
-        fragmentTransaction.commit();
-    }
-
     public String getValue(Element item, String str) {
         NodeList n = item.getElementsByTagName(str);
         return this.getElementValue(n.item(0));
@@ -372,5 +364,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return "";
+    }*/
+
+    public void changeFragment(){
+        AppListFragment appListFragment = new AppListFragment();
+        appListFragment.setContext(MainActivity.this);
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, appListFragment);
+        fragmentTransaction.commit();
     }
 }
